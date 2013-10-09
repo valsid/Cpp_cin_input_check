@@ -15,10 +15,9 @@ long double getDoubleVal() {
     int lastElementIndex = 0;   // используется при удалении символа
     bool isDecimalSeparatorInputted = false;
     bool isValidInput = false;
-    bool endInput = false;
 
 
-    while(!endInput) {
+    do {
         input = getch();       // getch записывает введенный символ в переменную не дожидаясь нажатия ентера
 
         switch(input) {
@@ -29,7 +28,7 @@ long double getDoubleVal() {
             }
             break;
         case 13:                // Числа вводятся пока не будет нажат ентер(символ 13)
-            endInput = true;
+            isValidInput = false;
             break;
         case '.':
         case ',':
@@ -40,15 +39,14 @@ long double getDoubleVal() {
             }
             break;
         case '\b':  // удаление символов
-            lastElementIndex = strRes.length() - 1;
-            if(lastElementIndex >= 0) {
+            if(!strRes.empty()) {
+                lastElementIndex = strRes.length() - 1;
                 char lastElem = strRes.at(lastElementIndex);
                 if(lastElem == '.' || lastElem == ',') {
                     isDecimalSeparatorInputted = false;
                 }
                 strRes.erase(lastElementIndex, 1);
                 cout << "\b \b";
-                continue;
             }
             break;
         default:
@@ -64,7 +62,7 @@ long double getDoubleVal() {
             cout << input;
             isValidInput = false;
         }
-    }
+    } while(input != '\r');
 
 #ifdef _MSC_VER
     return _Stold(strRes.c_str(), NULL, 0);
