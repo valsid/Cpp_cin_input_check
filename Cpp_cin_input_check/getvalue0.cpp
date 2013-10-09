@@ -18,7 +18,7 @@ using namespace std;
 //      я рекомендую передавати в функцію текст який буде відображений користувачу якщо віг ввів невірний текст
 //              input0 = getValue<int>();
 template <typename T>
-T getValue0(const char* errorText = 0, string *errBuf = 0) {
+T getValue0(const char* errorText, string *errBuf) {
     string buf;         // Тимчасовий буфер в який буде записуватися вміст буферу
     T input;
 
