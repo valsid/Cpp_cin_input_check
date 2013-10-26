@@ -1,14 +1,12 @@
 #include "getvalue0.h"
 
 #include <iostream>
-#include <limits>
-#include <cstdlib>
-/*
-using std::string;
 using std::cin;
 using std::cout;
-*/
-using namespace std;
+#include <limits>
+using std::numeric_limits;
+//#include <cstdlib>
+using std::streamsize;
 
 // errorText це повідомлення яке буде відображене якщо ввести невірне значення
 // errBuf це змінна в яку запишеться все що залилишось в буфері введення після
@@ -18,34 +16,25 @@ using namespace std;
 //      я рекомендую передавати в функцію текст який буде відображений користувачу якщо віг ввів невірний текст
 //              input0 = getValue<int>();
 template <typename T>
-T getValue0(const char* errorText, string *errBuf) {
-    string buf;         // Тимчасовий буфер в який буде записуватися вміст буферу
+T getValue0(const char* errorText) {
     T input;
 
     bool end = false;
     while(!end) {
-        if(cin >> input) {          // Якщо було введено вiрне значення, то йти на вихід
+        cin >> input;
+
+        // cin.peek();     // Зчитати один символ із буфера, не видаляючи його
+        //        if(cin.peek() == '\r') {
+        if(cin.peek() == 10) {
             end = true;
         } else {
-            if(errorText != 0 ) {   // В іншому випадку повідомити користувача
-                cout << errorText;  // Тобто вивести текст який
+            if(errorText != 0) {
+                cout << errorText << "\n";
             }
         }
 
-        cin.clear();            // Скинути флаги для потоку
-        if(errBuf != 0) {       // Якщо в функцію передали змінну в яку запишеться вміст буферу, тобто якщо адреса цієї змінної не дорівнює нулю
-            buf.clear();        // Очистити тимчасовий буфер
-            char c;             // Змінна в яку запишеться один символ із буферу
-            for(int i = 0; ; i++) {
-                c = cin.peek();     // Зчитати один символ із буфера, не видаляючи його
-                cin.ignore(1, c);   // Видалити попередньо зчитаний символ із буферу
-                if(c == 10) break;  // Якщо цей символ це символ кінця рядка (буферу?) то одразу вийти з циклу
-
-                buf.push_back(c);   // Додати отриманий символ до тимчасового буферу
-            }
-        }
-        //        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.clear();        // Скинути флаги для потоку
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-    if(errBuf != 0) errBuf->append(buf);    // Якщо
     return input;
 }
