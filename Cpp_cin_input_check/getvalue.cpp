@@ -56,7 +56,7 @@ long double getDoubleVal() {
                 isInputWillBeDisplayed = true;
             }
             break;
-        case '\b':  // удаление символов
+        case '\b':  // Видалення символів
             if(!strResult.empty()) {
                 char deletedSymbol = deleteLastSymbol(&strResult);
                 

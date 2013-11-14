@@ -3,10 +3,11 @@
 #include <iostream>
 using std::cin;
 using std::cout;
+using std::streamsize;
+
 #include <limits>
 using std::numeric_limits;
-//#include <cstdlib>
-using std::streamsize;
+
 
 // errorText це повідомлення яке буде відображене якщо ввести невірне значення
 // Функцію можна викликати і без цієї змінної, ось так: getValue<int>();
@@ -19,9 +20,8 @@ T getValue0(const char* errorText) {
     while(!end) {
         cin >> input;
 
-        // cin.peek();     // Зчитати один символ із буфера, не видаляючи його
-        //        if(cin.peek() == '\r') {
-        if(cin.peek() == 10) {
+        // cin.peek() - Зчитування одного символу із буфера, не видаляючи його
+        if(cin.peek() == '\n') {
             end = true;
         } else {
             if(errorText != 0) {
@@ -30,7 +30,8 @@ T getValue0(const char* errorText) {
         }
 
         cin.clear();        // Скинути флаги для потоку
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');    // Видалити все з потоку
     }
+
     return input;
 }
