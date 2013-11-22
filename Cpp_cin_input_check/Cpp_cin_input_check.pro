@@ -5,9 +5,11 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     getvalue.cpp \
-    getvalue0.cpp
+    getvalue0.cpp \
+    getIntValue.cpp
 
 HEADERS += \
     getvalue.h \
-    getvalue0.h
+    getvalue0.h \
+    getIntValue.h
 

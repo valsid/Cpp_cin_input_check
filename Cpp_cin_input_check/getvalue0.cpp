@@ -1,5 +1,6 @@
 #include "getvalue0.h"
 
+/*
 #include <iostream>
 using std::cin;
 using std::cout;
@@ -35,3 +36,4 @@ T getValue0(const char* errorText) {
 
     return input;
 }
+*/
