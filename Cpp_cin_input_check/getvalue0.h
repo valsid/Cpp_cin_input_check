@@ -30,7 +30,7 @@ T getValue0(const char* errorText) {
             end = true;
         } else {
             if(errorText != 0) {
-                cout << errorText << "\n";
+                cout << errorText;
             }
         }
 
