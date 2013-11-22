@@ -11,8 +11,8 @@ int main()
 
     long double doubleVar;
 //    doubleVar = getDoubleVal();
-    doubleVar = getValue0<long double>("Error: ");
-//    doubleVar = getIntValue(-1000, 1000);
+//    doubleVar = getValue0<long double>("Error: ");
+    doubleVar = getIntValue(-1000, 1000);
 
     cout << "\nresult: "
          << "\n\tnumber: " << doubleVar;
