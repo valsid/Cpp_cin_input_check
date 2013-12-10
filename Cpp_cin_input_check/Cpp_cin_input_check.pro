@@ -4,12 +4,13 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    getvalue.cpp \
-    getvalue0.cpp \
-    getIntValue.cpp
+    mystringfunction.cpp \
+    getintvalue.cpp \
+    getdoublevalue.cpp
 
 HEADERS += \
-    getvalue.h \
     getvalue0.h \
-    getIntValue.h
+    mystringfunction.h \
+    getintvalue.h \
+    getdoublevalue.h
 

@@ -1,24 +1,23 @@
 #ifndef GETVALUE0_H
 #define GETVALUE0_H
 
-// template <typename T>
-// T getValue0(const char* errorText = 0);
-
+//  Шаблон не можна розбити на декілька файлів
 
 #include <iostream>
+#include <limits>
+
+namespace my {
 using std::cin;
 using std::cout;
 using std::streamsize;
 
-#include <limits>
 using std::numeric_limits;
-
 
 // errorText це повідомлення яке буде відображене якщо ввести невірне значення
 // Функцію можна викликати і без цієї змінної, ось так: getValue<int>();
 
 template <typename T>
-T getValue0(const char* errorText) {
+T getValue0(const char* errorText = 0) {
     T input;
 
     bool end = false;
@@ -36,10 +35,12 @@ T getValue0(const char* errorText) {
 
         cin.clear();        // Скинути флаги для потоку
         cin.ignore(numeric_limits<streamsize>::max(), '\n');    // Видалити все з потоку
+        // cin.ignore(cin.rdbuf()->in_avail(), '\n'); ??
     }
 
     return input;
 }
 
+}
 
 #endif // GETVALUE0_H
