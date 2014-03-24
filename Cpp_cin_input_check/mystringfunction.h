@@ -3,7 +3,7 @@
 
 #include <string>
 
-namespace my {
+namespace inputCheck {
 using std::string;
 
 char getLastSymbol(const string &str);

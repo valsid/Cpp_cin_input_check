@@ -3,7 +3,7 @@
 #include <sstream>
 using std::stringstream;
 
-namespace my {
+namespace inputCheck {
 
 char getLastSymbol(const string &str)
 {
@@ -51,7 +51,7 @@ int compareNumericString(string str1, string str2)
    // "123" "-123" > -1
   // "-123" "-234" > -1
 
-#warning checkValid
+// TODO: check valid number
 
     int str1GreaterStr2 = -1,
         str1EqualStr2 = 0,
@@ -74,7 +74,6 @@ int compareNumericString(string str1, string str2)
 
     if(str1.at(0) == '-') {
         if(str2.at(0) == '-') {
-#warning TODO
             // Inverse return value
             str1GreaterStr2 = 1;
             str1LessStr2 = -1;

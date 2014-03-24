@@ -6,7 +6,7 @@
 #include <iostream>
 #include <limits>
 
-namespace my {
+namespace inputCheck {
 using std::cin;
 using std::cout;
 using std::streamsize;

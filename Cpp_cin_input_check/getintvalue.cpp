@@ -11,7 +11,7 @@ using std::string;
 
 #include "mystringfunction.h"
 
-namespace my {
+namespace inputCheck {
 // if minValue > maxValue?
 int getIntValue(int minValue, int maxValue)
 {

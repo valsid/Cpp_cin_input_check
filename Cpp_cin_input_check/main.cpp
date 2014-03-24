@@ -3,7 +3,7 @@ using std::cout;
 
 #include "getdoublevalue.h"
 #include "getvalue0.h"
-#include "getIntValue.h"
+#include "getintvalue.h"
 
 int main()
 {
@@ -11,12 +11,12 @@ int main()
 
     long double doubleVar;
 
-//    doubleVar = my::getLDoubleVal();
-//    doubleVar = my::getValue0<long double>("Error: ");
-    doubleVar = my::getIntValue(-1000, 1000);
+//    doubleVar = inputCheck::getLDoubleVal();  // temporarily disabled
+//    doubleVar = inputCheck::getValue0<long double>("Error: ");
+    doubleVar = inputCheck::getIntValue(-1000, 1000);
 
-    cout << "\nresult: "
-         << "\n\tnumber: " << doubleVar;
+    cout << "\n result: \n"
+         << "\tnumber: " << doubleVar << "\n";
 
     return 0;
 }

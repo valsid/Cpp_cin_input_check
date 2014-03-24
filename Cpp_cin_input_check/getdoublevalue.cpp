@@ -11,12 +11,13 @@ using std::string;
 // Може використати boost для переведення рядка символів до числа?..
 #include "mystringfunction.h"
 
-namespace my {
+namespace inputCheck {
 
 long double getLDoubleVal(long double minValue, long double maxValue)
 {
     const string minValueStr = intToStr(minValue),
                  maxValueStr = intToStr(maxValue);
+    cout << minValue;
 
     string strResult;           // В цій змінній, зберігається введене користувачем значення, яке буде переведене до числа
     char input = ' ';           // Тут зберігається введений користувачем символ
